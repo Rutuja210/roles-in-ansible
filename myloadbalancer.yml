@@ -1,0 +1,16 @@
+ - name: "Installing HAProxy"
+        package:
+              name: "haproxy"
+              state: present
+
+      - name: "Copying the onfiguration file of HAProxy"
+        template:
+              dest: "/etc/haproxy/haproxy.cfg"
+              src: "/task12/haproxy.cfg"
+
+      - name: "Restarting load balencer"
+        service:
+              name: "haproxy"
+              state: started
+
+# tasks file for myloadbalancer
