@@ -1,0 +1,21 @@
+ - name: "Installing httpd"
+      package:
+          name: "httpd"
+          state: present
+
+    - name: "Installing php"
+      package:
+          name: "php"
+          state: present
+
+    - name: "Copying the php page"
+      copy:
+          dest: "/var/www/html/index.php"
+          src: "/task12/index.php"
+
+    - name: "Starting httpd service"
+      service:
+           name: "httpd"
+           state: restarted
+
+# tasks file for myapache
